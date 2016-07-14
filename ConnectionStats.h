@@ -124,7 +124,7 @@ class ConnectionStats {
 
   static void print_header() {
     printf("%-7s %7s %7s %7s %7s %7s %7s %7s %7s\n",
-           "#type", "avg", "std", "min", /*"1st",*/ "5th", "10th",
+           "#type", "avg", "std", "min", /*"1st",*/ "5th", "10th", "50th",
            "90th", "95th", "99th");
   }
 
@@ -147,7 +147,7 @@ class ConnectionStats {
 
     printf("%-7s %7.1f %7.1f %7.1f %7.1f %7.1f %7.1f %7.1f %7.1f",
            tag, std::accumulate(copy.begin(), copy.end(), 0.0) / l,
-           copy[0], copy[(l*1) / 100], copy[(l*5) / 100], copy[(l*10) / 100],
+           copy[0], copy[(l*1) / 100], copy[(l*5) / 100], copy[(l*10) / 100], copy[(l*50) / 50],
            copy[(l*90) / 100], copy[(l*95) / 100], copy[(l*99) / 100]
            );
     if (newline) printf("\n");
